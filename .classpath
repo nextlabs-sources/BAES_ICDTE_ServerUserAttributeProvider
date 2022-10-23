@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="D:/Git/baes_icdte_serveruserattributeprovider/xlib/jar/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="xlib/jar/ehcache-3.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/jar/agent-common.jar"/>
+	<classpathentry kind="lib" path="lib/jar/agent-controlmanager.jar"/>
+	<classpathentry kind="lib" path="lib/jar/agent-ipc.jar"/>
+	<classpathentry kind="lib" path="lib/jar/app-framework.jar"/>
+	<classpathentry kind="lib" path="lib/jar/batchdeployer.jar"/>
+	<classpathentry kind="lib" path="lib/jar/client-pf.jar"/>
+	<classpathentry kind="lib" path="lib/jar/client-security-config.jar"/>
+	<classpathentry kind="lib" path="lib/jar/common-domain-types.jar"/>
+	<classpathentry kind="lib" path="lib/jar/common-domain.jar"/>
+	<classpathentry kind="lib" path="lib/jar/common-framework-types.jar"/>
+	<classpathentry kind="lib" path="lib/jar/common-framework.jar"/>
+	<classpathentry kind="lib" path="lib/jar/common-res.jar"/>
+	<classpathentry kind="lib" path="lib/jar/common-version-impl.jar"/>
+	<classpathentry kind="lib" path="lib/jar/common-version.jar"/>
+	<classpathentry kind="lib" path="lib/jar/crypt.jar"/>
+	<classpathentry kind="lib" path="lib/jar/logremover.jar"/>
+	<classpathentry kind="lib" path="lib/jar/policy-services.jar"/>
+	<classpathentry kind="lib" path="lib/jar/policy-types.jar"/>
+	<classpathentry kind="lib" path="lib/jar/server-framework.jar"/>
+	<classpathentry kind="lib" path="lib/jar/server-shared-services.jar"/>
+	<classpathentry kind="lib" path="lib/jar/server-shared-types.jar"/>
+	<classpathentry kind="lib" path="lib/jar/version-types.jar"/>
+	<classpathentry kind="lib" path="lib/jar/version.jar"/>
+	<classpathentry kind="lib" path="xlib/jar/slf4j-api-1.7.7.jar"/>
+	<classpathentry kind="lib" path="xlib/jar/ldap.jar"/>
+	<classpathentry kind="lib" path="xlib/jar/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="xlib/jar/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

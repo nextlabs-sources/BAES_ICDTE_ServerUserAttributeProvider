@@ -1,0 +1,72 @@
+#!/bin/bash
+#
+# DESCRIPTION
+#	Invoke custom application build script
+#
+# USAGE:
+#	Steps to invoke this script.
+#		export NLEXTERNALDIR=<path>
+#		export NLPROFSERVDIR=<path>
+#		export BUILD_NUMBER=<#>
+#		source setEnv
+#		./buildDev
+#
+# HUDSON BUILD:
+#	cd $WORKSPACE
+#	c
+#	export NLPROFSERVDIR=c:/depot/ProfessionServices/buildCommon
+#	source setEnv
+#	./buildDev
+
+
+#
+# Check for errors
+#
+
+export ARGS1=$1
+export NLEXTERNALDIR=D:/P4/sgdev_LEO/main/external/
+export NLEXTERNALDIR2=D:/P4/sgdev_LEO/main/external/
+
+
+export BUILD_NUMBER=1
+
+source ./setEnv --nomapsdrive
+
+export JAVA_HOME=$NLEXTERNALDIR/j2sdk/jdk1.7.0_75
+export ANT_HOME=$NLEXTERNALDIR/apache-ant/apache-ant-1.9.4
+
+ANT=$ANT_HOME/bin/ant
+
+LOG_FILE=buildDev.log
+
+(
+set -x
+# Prepare environment
+./configure --type=dev || exit $?
+source build.config
+
+# Compile code and build installers
+export ANT_OPTS="-Xmx1024M -XX:PermSize=128m -XX:MaxPermSize=512m"
+export ANT_ARGS="-Dnlbuildroot=$NLBUILDROOT -Dnlexternaldir=$NLEXTERNALDIR -D-Dnlexternaldir2=$NLEXTERNALDIR2 -Dversion_str=$VERSION_STR -Dversion_build_short=$VERSION_BUILD_SHORT -Dbuild_date_long=$BUILD_DATE_LONG"
+
+
+
+if [ "$ARGS1" == "--makexlib" ]; then
+	$ANT -f scripts/build_xlib.xml || exit $?
+	exit 0
+fi
+
+#
+# Check for errors
+#
+if [ ! -d ./xlib ]; then
+	echo "### ERROR: Missing xlib directory ./xlib"
+	exit 1
+fi
+
+$ANT -f scripts/build_compile.xml || exit $?
+#scripts/checkBuildLog.pl $LOG_FILE || exit $?
+set +x
+) 2>&1 | tee $LOG_FILE
+
+exit ${PIPESTATUS[0]}
